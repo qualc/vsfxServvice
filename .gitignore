@@ -1,5 +1,6 @@
 node_modules
 dist/*
+logs/*
 /project/vssr
 ./blogtest/node_modules
 .vscode/*
