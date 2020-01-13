@@ -3,10 +3,6 @@ import * as RedisHelper from '../../lib/redis';
 import logger from 'middleware/logger';
 
 export default async function(req, res, next) {
-    // 不用校验权限
-    if (req.opts?.needLogin === false) {
-        return next();
-    }
     try {
         const status = await checkToken(req, res);
         if (status == 1) {

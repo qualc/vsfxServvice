@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+import { exec, spawn } from 'child_process';
 import { Controller, Get, Post, Interceptors } from 'vsfx';
 
 import { isEmpty, isNotInteger, isFalse, isInteger, isNotEmpty } from '../../../lib/validate';
@@ -311,8 +311,9 @@ export class ArticleController {
             res.sendError('无权部署');
             return;
         }
+        spawn('git');
         // 强制覆盖本地代码，与git远程仓库保持一致
-        exec('git fetch --all && git reset --hard origin/master && git pull', (error, stdout, stderr) => {
+        exec('git pull', (error, stdout, stderr) => {
             if (error) {
                 res.sendError('拉取代码异常，请手动部署' + error.stack, 100);
                 return;
@@ -327,7 +328,6 @@ export class ArticleController {
                         res.sendError('pm2 reload 异常，请手动部署' + error.stack, 100);
                         return;
                     }
-                    console.log('####');
                 });
             });
         });
