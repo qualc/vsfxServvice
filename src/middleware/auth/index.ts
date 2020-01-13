@@ -1,6 +1,5 @@
 import * as jwt from 'jsonwebtoken';
 import * as RedisHelper from '../../lib/redis';
-import logger from 'middleware/logger';
 
 export default async function(req, res, next) {
     try {
