@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "outDir": "./dist",
+        "target": "es5",
+        "allowJs": true,
+        "module": "commonjs" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
+        // "declaration": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "lib": ["./src/lib/*"]
+        }
+    },
+    "include": ["src/**/*.ts", "src/middleware/logger"],
+    "exclude": ["node_modules", "dist"]
+}

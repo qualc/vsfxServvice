@@ -1,0 +1,12 @@
+[2020-01-13T11:54:03.105] [INFO] default - headers:undefined,timestamp:1578887643105
+[2020-01-13T11:54:03.123] [ERROR] default - headers.authorization not found
+[2020-01-13T11:54:51.907] [INFO] default - headers:undefined,timestamp:1578887691907
+[2020-01-13T11:54:51.920] [ERROR] default - headers.authorization not found
+[2020-01-13T11:55:09.414] [INFO] default - headers:undefined,timestamp:1578887709414
+[2020-01-13T11:55:09.422] [ERROR] default - headers.authorization not found
+[2020-01-13T11:56:52.651] [INFO] default - headers:undefined,timestamp:1578887812651
+[2020-01-13T11:56:52.736] [INFO] default - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmlja05hbWUiOiLlpKnlhrAiLCJwYXNzd29yZCI6IjQ4YmJkOWVhNDg3ZjI2OTlhNWE4YjZiMTgxYTRmMzAwIiwiZW1haWwiOiI0OTM1NDkxNzRAcXEuY29tIiwicGhvbmUiOiIxNTAyMTE0NjM0OCIsIm1ldHRvIjoi5aSp5LiK5YawLOS6ruaZtuaZti4iLCJoZWFkaW1nIjoiaHR0cDovL3N0YXRpYy5xdWFsYy5jbi9pbWFnZXMvdXBsb2FkXzAzZTdlYmU5MDRhY2YxYjJmZDRlYThjZmU2MmRiNzc3LmpwZyIsInVzZXJzUm9sZUlkIjoxLCJyb2xlTmFtZSI6Iui2hee6p-euoeeQhuWRmCIsImlhdCI6MTU3ODg4NzgxMiwiZXhwIjoxNTc5MTg3ODEyfQ.4Sv822xP1C_v4HsgrpU7A_bZ4KguFZofPPmAgkvviiw"}
+[2020-01-13T11:56:56.810] [INFO] default - headers:undefined,timestamp:1578887816810
+[2020-01-13T11:59:00.375] [INFO] default - headers:undefined,timestamp:1578887940375
+[2020-01-13T11:59:00.454] [INFO] default - {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmlja05hbWUiOiLlpKnlhrAiLCJwYXNzd29yZCI6IjQ4YmJkOWVhNDg3ZjI2OTlhNWE4YjZiMTgxYTRmMzAwIiwiZW1haWwiOiI0OTM1NDkxNzRAcXEuY29tIiwicGhvbmUiOiIxNTAyMTE0NjM0OCIsIm1ldHRvIjoi5aSp5LiK5YawLOS6ruaZtuaZti4iLCJoZWFkaW1nIjoiaHR0cDovL3N0YXRpYy5xdWFsYy5jbi9pbWFnZXMvdXBsb2FkXzAzZTdlYmU5MDRhY2YxYjJmZDRlYThjZmU2MmRiNzc3LmpwZyIsInVzZXJzUm9sZUlkIjoxLCJyb2xlTmFtZSI6Iui2hee6p-euoeeQhuWRmCIsImlhdCI6MTU3ODg4Nzk0MCwiZXhwIjoxNTc5MTg3OTQwfQ.i15UqVY4d0Lf2rlLkx9GD0MqQlDjjDXZnhA5NQG6Jg8"}
+[2020-01-13T11:59:00.459] [INFO] default - headers:undefined,timestamp:1578887940459

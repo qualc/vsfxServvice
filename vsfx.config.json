@@ -1,0 +1,14 @@
+{
+    "base": "/dist",
+    "controller": [
+        {
+            "base": "/manage",
+            "path": "/controller/manage"
+        },
+        {
+            "base": "/restapi",
+            "path": "/controller/blog"
+        }
+    ],
+    "service": "/service"
+}
