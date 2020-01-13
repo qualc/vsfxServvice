@@ -4,6 +4,8 @@ import logger from 'middleware/logger';
 
 export default async function(req, res, next) {
     try {
+        console.log('#########');
+        console.log(req.opts);
         const status = await checkToken(req, res);
         if (status == 1) {
             next();
