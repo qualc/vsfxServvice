@@ -33,8 +33,9 @@ const descriReg = /^#[^\n\r]+\s+(\>|\&gt;)([^#]+)/;
  * @export
  * @class ArticleController
  */
-@Controller('/vsarticle')
-@Interceptors(false)
+@Controller('/vsarticle', {
+    interceptors: false
+})
 export class ArticleController {
     // 保存文章
     @Post('/savea')
@@ -313,7 +314,7 @@ export class ArticleController {
         }
         spawn('git');
         // 强制覆盖本地代码，与git远程仓库保持一致
-        exec('git pull', (error, stdout, stderr) => {
+        exec('git fetch', (error, stdout, stderr) => {
             if (error) {
                 res.sendError('拉取代码异常，请手动部署' + error.stack, 100);
                 return;
