@@ -1,7 +1,7 @@
 type Structural = {
     title: string;
-    users: Users;
-    articleType: ArticleType;
+    usersId: number;
+    articleTypeId: number;
     articleSeries: ArticleSeries;
     coding: number;
     docreader: string;
@@ -25,8 +25,8 @@ export class Article extends BaseEntity {
         super();
 
         this.title = props.title;
-        this.users = props.users;
-        this.articleType = props.articleType;
+        this.usersId = props.usersId;
+        this.articleTypeId = props.articleTypeId;
         this.articleSeries = props.articleSeries;
         this.coding = props.coding;
         this.docreader = props.docreader;
@@ -41,13 +41,18 @@ export class Article extends BaseEntity {
     @Column('varchar', { length: 225, comment: '标题' })
     title: string;
 
-    @OneToOne(type => Users)
-    @JoinColumn()
-    users: Users;
+    // @OneToOne(type => Users)
+    // @JoinColumn()
+    // users: Users;
 
-    @OneToOne(type => ArticleType)
-    @JoinColumn()
-    articleType: ArticleType;
+    @Column('int')
+    usersId: number;
+
+    // @OneToOne(type => ArticleType)
+    // @JoinColumn()
+    // articleType: ArticleType;
+    @Column('int')
+    articleTypeId: number;
 
     @ManyToOne(
         type => ArticleSeries,

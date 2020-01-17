@@ -24,7 +24,7 @@
         "redis": "^2.8.0",
         "reflect-metadata": "^0.1.13",
         "typeorm": "^0.2.22",
-        "vsfx": "0.0.9",
+        "vsfx": "0.0.12",
         "xss": "^1.0.6"
     },
     "devDependencies": {

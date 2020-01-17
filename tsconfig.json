@@ -4,6 +4,7 @@
         "outDir": "./dist",
         "target": "es5",
         "allowJs": true,
+        "sourceMap": true,
         "module": "commonjs" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
         // "declaration": true,
         "strict": true,

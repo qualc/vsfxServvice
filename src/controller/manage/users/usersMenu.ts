@@ -19,7 +19,6 @@ export class usersController {
         if (!roleId) {
             return res.sendError('获取用户信息异常，请重新登录', 998);
         }
-        console.log('####');
         let results = formatMenuMap(await usersMenuService.getMenuListByRoleId(roleId));
         res.sendSuccess(results);
     }
@@ -181,7 +180,6 @@ export class usersController {
         if (!Array.isArray(arr)) {
             return res.sendError('入参arr类型错误');
         }
-        console.log(arr.join('|'));
         if (!/^\d+\,\d+(\|\d+\,\d+)?/.test(arr.join('|'))) {
             return res.sendError('入参格式错误,[[int]]');
         }

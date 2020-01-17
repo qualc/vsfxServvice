@@ -7,14 +7,18 @@ import Middleware from './middleware';
 
 const app = server();
 app.beforeUse(Middleware.logger());
+app.beforeUse(Middleware.proxy('wx'));
 app.beforeUse(Middleware.typeorm());
 app.beforeUse(Middleware.extendRes());
+app.beforeUse(bodyParser.json());
+// app.beforeUse(bodyParser.redis());
 app.useIntercept('/manage', function(req, res, next) {
     Middleware.auth(req, res, next);
 });
-
+app.useIntercept('/wx', function(req, res, next) {
+    Middleware.authWx(req, res, next);
+});
 app.static('/static');
-app.beforeUse(bodyParser.json());
 app.catch(function(err, req, res, next) {
     res.sendStatus(500);
 });

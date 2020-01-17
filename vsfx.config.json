@@ -8,6 +8,10 @@
         {
             "base": "/restapi",
             "path": "/controller/blog"
+        },
+        {
+            "base": "/wx",
+            "path": "/controller/wechat"
         }
     ],
     "service": "/service"

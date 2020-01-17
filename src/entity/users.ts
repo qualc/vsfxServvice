@@ -2,7 +2,7 @@ type Structural = {
     userName: string;
     email: string;
     password: string;
-    usersRole: UsersRole;
+    userRoleId: number;
     nickName: string;
     headimg: string;
     phone: string;
@@ -16,7 +16,6 @@ type Structural = {
 
 import { Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany } from 'typeorm';
 import { BaseEntity } from './BaseEntity';
-import { UsersRole } from './usersRole';
 @Entity('users')
 export class Users extends BaseEntity {
     constructor(props: Structural = <Structural>{}) {
@@ -25,7 +24,7 @@ export class Users extends BaseEntity {
         this.userName = props.userName;
         this.email = props.email;
         this.password = props.password;
-        this.usersRole = props.usersRole;
+        this.userRoleId = props.userRoleId;
         this.nickName = props.nickName;
         this.headimg = props.headimg;
         this.phone = props.phone;
@@ -45,9 +44,12 @@ export class Users extends BaseEntity {
     @Column('varchar', { length: 200, comment: '密码' })
     password: string;
 
-    @OneToOne(type => UsersRole, { nullable: true })
-    @JoinColumn()
-    usersRole: UsersRole;
+    // @OneToOne(type => UsersRole, { nullable: true })
+    // @JoinColumn()
+    // usersRole: UsersRole;
+
+    @Column('int')
+    userRoleId: number;
 
     @Column('varchar', { length: 20, comment: '用户昵称' })
     nickName: string;

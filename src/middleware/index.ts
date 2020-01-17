@@ -1,9 +1,11 @@
 import auth from './auth';
+import authWx from './authWx';
 import extendRes from './extendRes';
 import typeorm from './typeorm';
 import logger from './logger';
+import proxy from './proxy';
 
-export default { auth, extendRes, typeorm, logger };
+export default { auth, extendRes, typeorm, logger, proxy, authWx };
 
 // const fs = require('fs');
 // const curPath = __dirname;

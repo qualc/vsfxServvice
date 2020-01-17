@@ -84,7 +84,7 @@ export class ArticleController {
         let _articleType = <ArticleType>{};
         _articleType.id = articleType.id;
         _articleType.name = articleType.label;
-        article.articleType = _articleType;
+        article.articleTypeId = articleType.id;
         if (picture) {
             article.picture = picture; // || articleType.iconUrl;
         }
@@ -141,7 +141,7 @@ export class ArticleController {
         } catch (e) {
             users.id = 2;
         }
-        article.users = users;
+        article.usersId = users.id;
         // Object.assign(article, Only(body, ['title', 'content', 'pricture', 'docreader', 'labelId', 'publishDate', 'type']))
         if (!article.picture) {
             // ![2019-09-09-15-24-11.png](http://static.qualc.cn/images/upload_e87e46497e6c783d38e65f8b00c1213e.png)
