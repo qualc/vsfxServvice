@@ -67,6 +67,7 @@ export class UsersController {
                 return res.sendError('邮箱地址不能为空');
             }
             var users = await usersService.getUsersLogin({ email });
+
             if (users.id) {
                 let { password } = users;
                 password = Crypto.aesDecryptPipe(password);
@@ -79,6 +80,7 @@ export class UsersController {
                         expiresIn: jwtConfig.expiresIn
                     });
                     let [menuList = [], interfaceList] = await Promise.all([usersMenuService.getMenuListByRoleId(users.usersRoleId), usersInterfaceService.getInterfaceListByRoleId(users.usersRoleId)]);
+
                     // TODO: 临时处理
                     // interfaceList.forEach((item: any) => {
                     //     console.log(pathToRegexp(item.interfaceUri, [], { end: true }));
@@ -97,6 +99,7 @@ export class UsersController {
                 return res.sendError('用户名不存在');
             }
         } catch (e) {
+            console.log(e);
             res.sendError(e);
         }
         // res.sendSuccess({ nickName: users.nickName });
@@ -246,13 +249,11 @@ export class UsersController {
             return res.sendError(hasError);
         }
         let users = <Users>{};
-        var usersRole = <UsersRole>{};
         users.nickName = nickName || email;
         users.email = email;
         users.phone = phone;
         users.userName = userName;
-        usersRole.id = roleId;
-        users.usersRole = usersRole;
+        users.usersRoleId = roleId;
         users.createDate = Format.date(new Date(), 'yyyy-MM-dd hh:mm:ss');
         users.password = Crypto.aesEncryptPipe(password);
         users.headimg = headimg;

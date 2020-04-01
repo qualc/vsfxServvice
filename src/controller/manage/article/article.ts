@@ -111,8 +111,8 @@ export class ArticleController {
         } catch (e) {
             users.id = 2;
         }
-        article.users = users;
-        article.articleType = articleType;
+        article.usersId = users.inside;
+        article.articleTypeId = articleType.id;
 
         if (body.articleSeriesId) {
             let articleSeries = <ArticleSeries>{};

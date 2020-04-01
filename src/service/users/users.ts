@@ -38,28 +38,31 @@ export class UsersService extends BaseService implements UsersInterface {
         // let users = await this.execute(sql);
         // return users[0] || {};
         // let users: Users = await this.getRepository(Users).query(`select id, email, password,usersRoleId from users where email="${email}"`);
-
-        let query = this.getRepository(Users)
-            .createQueryBuilder('users')
-            .leftJoinAndSelect('users.usersRole', 'usersRole')
-            .select([
-                'users.id id',
-                'users.nickName nickName',
-                // 'users.userName userName',
-                'users.password password',
-                'users.email email',
-                'users.phone phone',
-                'users.motto metto',
-                'users.headimg headimg',
-                'usersRole.id usersRoleId',
-                'usersRole.name roleName'
-            ])
-            .where('1=1');
+        let sql = `select u.id, u.nickName, u.password, u.email, u.phone, u.motto, u.headimg, ur.id as usersRoleId, ur.name as roleName from users u left join users_role ur on u.usersRoleId = ur.id where 1=1 `;
+        // let query = this.getRepository(Users)
+        //     .createQueryBuilder('users')
+        //     // .leftJoinAndSelect('users.usersRole', 'usersRole')
+        //     .select([
+        //         'users.id id',
+        //         'users.nickName nickName',
+        //         // 'users.userName userName',
+        //         'users.password password',
+        //         'users.email email',
+        //         'users.phone phone',
+        //         'users.motto metto',
+        //         'users.headimg headimg',
+        //         'users.id usersRoleId',
+        //         'usersRole.name roleName'
+        //     ])
+        //     .where('1=1');
         if (email) {
-            query = query.andWhere('users.email=:email', { email });
+            // query = query.andWhere('users.email=:email', { email });
+            sql += ` and u.email = '${email}'`;
         }
-        let users = await query.printSql().getRawOne();
-        return users || {};
+
+        // let users = await query.printSql().getRawOne();
+        let users = await this.getRepository(Users).query(sql);
+        return users[0] || {};
     }
 
     /**

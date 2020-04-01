@@ -1,5 +1,6 @@
 type Structural = {
     name: string;
+    id: number;
     disabled: number;
     iconUrl: string;
 };
@@ -11,7 +12,10 @@ export default class WXAccountType {
         this.name = props.name;
         this.disabled = props.disabled;
         this.iconUrl = props.iconUrl;
+        this.id = props.id;
     }
+    @PrimaryColumn()
+    id: number;
     @Column('varchar', { length: 100, comment: '描述', nullable: true })
     name: string;
     @Column('int', { default: 1, comment: '1可用，0禁用' })

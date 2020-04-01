@@ -2,7 +2,7 @@ type Structural = {
     userName: string;
     email: string;
     password: string;
-    userRoleId: number;
+    usersRoleId: number;
     nickName: string;
     headimg: string;
     phone: string;
@@ -24,7 +24,7 @@ export class Users extends BaseEntity {
         this.userName = props.userName;
         this.email = props.email;
         this.password = props.password;
-        this.userRoleId = props.userRoleId;
+        this.usersRoleId = props.usersRoleId;
         this.nickName = props.nickName;
         this.headimg = props.headimg;
         this.phone = props.phone;
@@ -49,7 +49,7 @@ export class Users extends BaseEntity {
     // usersRole: UsersRole;
 
     @Column('int')
-    userRoleId: number;
+    usersRoleId: number;
 
     @Column('varchar', { length: 20, comment: '用户昵称' })
     nickName: string;

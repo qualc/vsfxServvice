@@ -1,6 +1,6 @@
 import { Service } from 'vsfx';
 import { BaseService } from '../BaseService';
-import { ArticleInterface, findAllArticleD } from './article.d';
+import { ArticleInterface, findAllArticleD, findStatisticalByYmD } from './article.d';
 import { Article } from '../../entity/article';
 import { isNotFalse } from '../../lib/validate';
 
@@ -244,12 +244,15 @@ export class ArticleService extends BaseService implements ArticleInterface {
     /**
      * 按年月统计数量
      */
-    async getStatisticalByYM(identity?) {
-        let sql = `select any_value(date_format(publishDate, '%Y年%m月')) date, count(1) count from article where disabled = 1`;
+    async findStatisticalByYM({ articleTypeId = 0, type, identity = '' }: findStatisticalByYmD) {
+        let sql = `select count(publishDate), date_format(publishDate, '%Y-%m') as publishYM from article where disabled = 1 `;
         if (identity) {
             sql += ` and identity = '${identity}'`;
         }
-        sql += ` group by date_format(publishDate, '%Y-%m') order by date desc;`;
+        if (identity) {
+            sql += ` and articleTypeId = '${articleTypeId}'`;
+        }
+        sql += ` group by publishYM order by publishYM desc;`;
         return await this.getRepository(Article).query(sql);
     }
 }

@@ -83,9 +83,11 @@ export class ArticleController {
      * 按年月统计数量
      */
     @Get('/statistical')
-    async getStatisticalByYM({ query: { identity } }, res) {
-        let datas = await articleService.getStatisticalByYM(identity);
-        res.sendSuccess(datas);
+    async getStatisticalByYM({ query: { articleTypeId, type, identity } }, res) {
+        if (articleTypeId && isNotInteger(articleTypeId)) {
+            return res.sendError('分类type类型错误');
+        }
+        res.sendSuccess(await articleService.findStatisticalByYM({ articleTypeId, type, identity }));
     }
     // @Get('/visitors.png')
     // async getVisitorsById(req, res, next) {

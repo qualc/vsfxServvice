@@ -54,10 +54,10 @@ export class Article extends BaseEntity {
     @Column('int')
     articleTypeId: number;
 
-    @ManyToOne(
-        type => ArticleSeries,
-        articleSeries => articleSeries.article
-    )
+    // @ManyToOne(
+    //     type => ArticleSeries,
+    //     articleSeries => articleSeries.article
+    // )
     articleSeries: ArticleSeries;
 
     @Column('int', { comment: '编码方式, 1 富文本  2 markdown', default: 1 })
